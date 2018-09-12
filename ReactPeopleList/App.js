@@ -1,55 +1,26 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import FlatListBasics from './List';
 
 //################################################################################
-//# FIREBASE EXPERIMENT
+//# FIREBASE CODE
 //################################################################################
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-firebase.initializeApp({
-  apiKey: "AIzaSyBjPYBiDN6nMmXDExQ2fPKg7k92npODy9c",
-  authDomain: "reactpeoplelist.firebaseapp.com",
-  projectId: "reactpeoplelist"
-});
+console.log('IN: App.js');
 
-var db = firebase.firestore();
+var myModule = require('./Firebase');
+var data = myModule.data;
 
-db.settings({
-  timestampsInSnapshots: true
-});
+console.log('Samir')
+console.log(data);
 
-console.log('WHERE DOES THIS SHOW UP?');
-
-var data = []
-
-db.collection("people").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        data.push(doc.data().name);
-    });
-    data = data.sort()
-    console.log(data);
-});
-
-// console.log(data);
-
-// TODO: RETURN LIST OF NAMES, NOT GROUP OF DB OBJECTS
-
-// var config = {
-//     apiKey: "AIzaSyBjPYBiDN6nMmXDExQ2fPKg7k92npODy9c",
-//     authDomain: "reactpeoplelist.firebaseapp.com",
-//     databaseURL: "https://reactpeoplelist.firebaseio.com",
-//     projectId: "reactpeoplelist",
-//     storageBucket: "reactpeoplelist.appspot.com",
-//     messagingSenderId: "992090732552"
-//   };
 //################################################################################
 class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+        <Text>Yup</Text>
+        <FlatListBasics />
         <Button
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
