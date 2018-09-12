@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, ScrollView } from 'react-native';
+import { Button, Text, Image, View, StyleSheet, ScrollView } from 'react-native';
 
 class ScrollViewExample extends Component {
    state = {
       names: [
+         'Ben',
+         'Susan',
+         'Robert',
+         'Mary',
+         'Daniel',
+         'Laura',
+         'John',
+         'Debra',
+         'Aron',
+         'Ann',
+         'Steve',
+         'Olivia',
          'Ben',
          'Susan',
          'Robert',
@@ -23,9 +35,11 @@ class ScrollViewExample extends Component {
          <View>
             <ScrollView>
                {
-                  this.state.names.map((item, index) => (
+                  this.state.names.map((item) => (
                      <View style = {styles.item}>
-                        <Text>{item}</Text>
+                        <Button
+                          title={item}
+                        />
                      </View>
                   ))
                }

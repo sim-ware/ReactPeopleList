@@ -18,13 +18,17 @@ console.log('IN: Firebase.js');
 
 const data = []
 
-db.collection("people").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        data.push(doc.data().name);
+db.collection("people").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        data.push({key: doc.id, value: doc.data().name});
     });
     data = data.sort()
     console.log(data);
 });
+
+// console.log(data);
 
 // export data;
 exports.data = data;
