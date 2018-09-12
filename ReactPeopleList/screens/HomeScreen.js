@@ -11,7 +11,6 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <FlatListBasics />
         <ScrollViewExample />
         <Button
           title="Go to Details"

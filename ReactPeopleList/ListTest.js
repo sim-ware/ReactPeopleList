@@ -4,18 +4,18 @@ import { Text, Image, View, StyleSheet, ScrollView } from 'react-native';
 class ScrollViewExample extends Component {
    state = {
       names: [
-         {'name': 'Ben', 'id': 1},
-         {'name': 'Susan', 'id': 2},
-         {'name': 'Robert', 'id': 3},
-         {'name': 'Mary', 'id': 4},
-         {'name': 'Daniel', 'id': 5},
-         {'name': 'Laura', 'id': 6},
-         {'name': 'John', 'id': 7},
-         {'name': 'Debra', 'id': 8},
-         {'name': 'Aron', 'id': 9},
-         {'name': 'Ann', 'id': 10},
-         {'name': 'Steve', 'id': 11},
-         {'name': 'Olivia', 'id': 12}
+         'Ben',
+         'Susan',
+         'Robert',
+         'Mary',
+         'Daniel',
+         'Laura',
+         'John',
+         'Debra',
+         'Aron',
+         'Ann',
+         'Steve',
+         'Olivia',
       ]
    }
    render() {
@@ -24,8 +24,8 @@ class ScrollViewExample extends Component {
             <ScrollView>
                {
                   this.state.names.map((item, index) => (
-                     <View key = {item.id} style = {styles.item}>
-                        <Text>{item.name}</Text>
+                     <View style = {styles.item}>
+                        <Text>{item}</Text>
                      </View>
                   ))
                }
@@ -38,13 +38,16 @@ export default ScrollViewExample
 
 const styles = StyleSheet.create ({
    item: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: 30,
+      // flexDirection: 'row',
+      // justifyContent: 'space-between',
+      // alignItems: 'center',
+      // padding: 30,
+      // fontSize: 30,
+      // backgroundSize: 'auto',
+      paddingHorizontal: 50,
       margin: 2,
-      borderColor: '#2a4944',
-      borderWidth: 1,
-      backgroundColor: '#d2f7f1'
+      // borderColor: '#2a4944',
+      // borderWidth: 1,
+      backgroundColor: '#ffffff'
    }
 })
