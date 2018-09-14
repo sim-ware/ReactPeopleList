@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Text, Image, View, StyleSheet, ScrollView } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 
 class ListItem extends Component {
@@ -24,5 +25,5 @@ const styles = StyleSheet.create ({
 })
 
 
-export default ListItem;
+export default withNavigation(ListItem);
 // onPress={() => this.props.navigation.navigate('Details')}
