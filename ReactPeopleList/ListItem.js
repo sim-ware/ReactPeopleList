@@ -8,6 +8,7 @@ class ListItem extends Component {
              <View style = {styles.item}>
                 <Button
                   title={this.props.name}
+                  onPress={() => this.props.navigation.navigate('Details')}
                 />
              </View>
       )

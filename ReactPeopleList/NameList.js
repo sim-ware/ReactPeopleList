@@ -24,10 +24,13 @@ export default class NameList extends Component {
 
    render() {
       return (
+        <View style = {styles.item}>
           <FlatList
             data={this.state.data}
             renderItem={({item}) => <ListItem name={item} />}
+            keyExtractor={(item, index) => index}
           />
+        </View>
       )
    }
 }
