@@ -9,7 +9,13 @@ class ListItem extends Component {
              <View style = {styles.item}>
                 <Button
                   title={this.props.name}
-                  onPress={() => this.props.navigation.navigate('Details')}
+                  onPress={() => {
+                    /* 1. Navigate to the Details route with params */
+                    this.props.navigation.navigate('Details', {
+                      itemId: 95,
+                      otherParam: 'yo dog',
+                    });
+                  }}
                 />
              </View>
       )
