@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Text, Image, View, StyleSheet, ScrollView } from 'react-native';
+import { Button, View, StyleSheet} from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 
@@ -10,10 +10,9 @@ class ListItem extends Component {
                 <Button
                   title={this.props.name}
                   onPress={() => {
-                    /* 1. Navigate to the Details route with params */
                     this.props.navigation.navigate('Details', {
                       itemId: 95,
-                      otherParam: 'yo dog',
+                      otherParam: this.props.name,
                     });
                   }}
                 />
@@ -32,4 +31,3 @@ const styles = StyleSheet.create ({
 
 
 export default withNavigation(ListItem);
-// onPress={() => this.props.navigation.navigate('Details')}

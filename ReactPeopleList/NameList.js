@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, AppRegistry, ScrollView, FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import ListItem from './ListItem'
 
 var myModule = require('./Firebase');
