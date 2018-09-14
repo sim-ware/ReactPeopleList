@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet} from 'react-native';
+import AgeTab from './AgeTab';
+import RatingTab from './RatingTab';
+import IDTab from './IDTab';
 // import { withNavigation } from 'react-navigation';
 var myModule = require('../Firebase');
 
@@ -17,6 +20,8 @@ class DetailCard extends Component {
    const db = myModule.db;
    const name = String(this.props.name);
    console.log(name);
+   //
+   // db.collection('people').where("name", "==", String(this.props.name)).get().then(collection => {
    db.collection('people').where("name", "==", "Adam Apple").get().then(collection => {
      const name = collection.docs.map(doc => doc.data().name)
      const rating = collection.docs.map(doc => doc.data().rating)
@@ -24,17 +29,14 @@ class DetailCard extends Component {
      this.setState({ name });
      this.setState({ rating });
      this.setState({ birthday });
-     console.log(this.state.name);
-     console.log(this.state.rating);
-     console.log(this.state.birthday);
    });
    }
    render() {
       return (
              <View style = {styles.item}>
-                <Text>{this.state.name}</Text>
-                <Text>{this.state.birthday}</Text>
-                <Text>{this.state.rating}</Text>
+                <IDTab name={this.state.name} />
+                <AgeTab birthday={this.state.birthday} />
+                <RatingTab rating={this.state.rating} />
              </View>
       )
    }
