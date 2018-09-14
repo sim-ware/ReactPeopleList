@@ -3,33 +3,29 @@ import { Button, AppRegistry, ScrollView, FlatList, StyleSheet, Text, View } fro
 import ListItem from './ListItem'
 
 var myModule = require('./Firebase');
-var db = myModule.db;
 
-console.log('NameList.js')
 
-var data = []
-
-db.collection("people").get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        data.push(doc.data().name);
-    });
-    // // // // // // //
-    console.log('1.');
-    console.log(data);
-    // // // // // // //
-});
-
-// const test_data_names = ["Adam Apple", "Billy Bunter", "Charlie Chaplin","David Donut","Eddy Eagle","Freddie Flintoff","George Graham","Harry Hands","Ian Italy","Jane Joseph","Kevin Keegan", "Adam Apple", "Billy Bunter", "Charlie Chaplin","David Donut","Eddy Eagle","Freddie Flintoff","George Graham","Harry Hands","Ian Italy","Jane Joseph","Kevin Keegan"]
-console.log('2.');
-console.log(data);
-
-// <NameList data={test_data_names} />
 
 export default class NameList extends Component {
+   constructor() {
+     super();
+     this.state = {
+       data: []
+     };
+     this.componentDidMount = this.componentDidMount.bind(this);
+   }
+   componentDidMount() {
+    const db = myModule.db;
+    db.collection('people').get().then(collection => {
+      const data = collection.docs.map(doc => doc.data().name)
+      this.setState({ data });
+    });
+   }
+
    render() {
       return (
           <FlatList
-            data={data}
+            data={this.state.data}
             renderItem={({item}) => <ListItem name={item} />}
           />
       )
