@@ -19,9 +19,7 @@ export default class DetailsScreen extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-        <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-        <DetailCard name={otherParam}/>
+        <DetailCard name={JSON.stringify(otherParam)}/>
       </View>
     );
   }
