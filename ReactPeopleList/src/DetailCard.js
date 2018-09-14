@@ -6,6 +6,10 @@ import IDTab from './IDTab';
 // import { withNavigation } from 'react-navigation';
 var myModule = require('../Firebase');
 
+// var admin = require("firebase-admin");
+// var db = firebaseAdmin.database();
+// var ref = db.ref("people");
+
 
 class DetailCard extends Component {
   constructor() {
