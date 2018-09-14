@@ -8,6 +8,7 @@ class ListItem extends Component {
       return (
              <View style = {styles.item}>
                 <Button
+                  raised={false}
                   title={this.props.name}
                   onPress={() => {
                     this.props.navigation.navigate('Details', {
@@ -25,7 +26,6 @@ const styles = StyleSheet.create ({
    item: {
       paddingHorizontal: 50,
       margin: 2,
-      backgroundColor: '#ffffff'
    }
 })
 

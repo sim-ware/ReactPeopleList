@@ -1,6 +1,22 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+//
+var myModule = require('../Firebase');
 
+
+//
+const db = myModule.db;
+
+db.collection("people").where("name", "==", "Adam Apple")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+// console.log(data);
+//
 
 export default class DetailsScreen extends React.Component {
   static navigationOptions = {
