@@ -23,7 +23,7 @@ class IDTab extends Component {
    render() {
       return (
              <View style = {styles.item}>
-                <Image
+                <Image style = {styles.image}
                   source={Images[this.getFilePath(this.props.name)]}
                 />
                 <Text>{this.getFilePath(this.props.name)}</Text>
@@ -37,6 +37,13 @@ const styles = StyleSheet.create ({
    item: {
       paddingHorizontal: 50,
       margin: 2,
+   },
+   image: {
+      // flex: 1,
+      width: 150,
+      height: 150,
+      borderRadius: 75,
+      // resizeMode: 'contain'
    }
 })
 
