@@ -23,16 +23,16 @@ class DetailCard extends Component {
   componentDidMount() {
    const db = myModule.db;
    let name = String(this.props.name);
-   console.log(name);
+   // console.log(name);
    //
    // Create a reference to the cities collection
    var citiesRef = db.collection("people");
 
    // Create a query against the collection.
    name = name.replace(/['"]+/g, '');
-   console.log(name);
+   // console.log(name);
    var query = citiesRef.where("name", "==", name);
-   console.log(query);
+   // console.log(query);
    // DYNAMIC: "\"Harry Hands\""
    // HARD-CODED: "Adam Apple"
    //
