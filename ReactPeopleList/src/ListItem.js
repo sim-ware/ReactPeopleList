@@ -7,7 +7,7 @@ class ListItem extends Component {
    render() {
       return (
              <View style = {styles.item}>
-                <Button
+                <Button style = {styles.butoon}
                   raised={false}
                   title={this.props.name}
                   onPress={() => {
@@ -26,6 +26,10 @@ const styles = StyleSheet.create ({
    item: {
       paddingHorizontal: 50,
       margin: 2,
+      // backgroundColor:'black'
+   },
+   butoon: {
+      color:'black'
    }
 })
 

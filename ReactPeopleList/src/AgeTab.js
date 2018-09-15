@@ -21,7 +21,29 @@ class AgeTab extends Component {
   }
 
   getCountDown(birthday) {
+    // birthday needs to be converted to '10-01' format; MM-DD
+    // console.log(String(birthday).substr(5,2));
+    // console.log(String(birthday).substr(8,2));
+    // birthday = String(birthday).substr(5,2) + '-' + String(birthday).substr(8,2)
+    // var t1 = new Date();
+    // var t2 = new Date(t1.getFullYear() + '-' + birthday);
+    // var dif = t1.getTime() - t2.getTime();
+    // var Seconds_from_T1_to_T2 = dif / 1000;
+    // var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
+    // console.log(Seconds_Between_Dates/60/60/24);
+    // console.log(Seconds_Between_Dates.getMonth());
+    // return countDown
     return birthday
+
+  }
+
+  getSecondsTillDate(date) {
+    var t1 = new Date();
+    var t2 = new Date(t1.getFullYear() + '-' + date);
+    var dif = t1.getTime() - t2.getTime();
+    var Seconds_from_T1_to_T2 = dif / 1000;
+    var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
+    return Seconds_Between_Dates;
   }
 
    render() {

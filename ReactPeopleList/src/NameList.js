@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import ListItem from './ListItem'
-
 const myModule = require('../Firebase');
 
 
@@ -28,7 +27,6 @@ export default class NameList extends Component {
           <FlatList
             data={this.state.data}
             renderItem={({item}) => <ListItem name={item} />}
-            keyExtractor={(item, index) => index}
           />
         </View>
       )
@@ -44,8 +42,5 @@ const styles = StyleSheet.create ({
       margin: 2,
       borderColor: '#2a4944',
       borderWidth: 1,
-      backgroundColor: '#d2f7f1'
    }
 })
-
-// keyExtractor={(item, index) => index}
