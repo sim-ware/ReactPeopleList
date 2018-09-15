@@ -23,10 +23,11 @@ class IDTab extends Component {
    render() {
       return (
              <View style = {styles.item}>
-                <Image style = {styles.image}
-                  source={Images[this.getFilePath(this.props.name)]}
-                />
-                <Text>{this.getFilePath(this.props.name)}</Text>
+               <View style = {styles.border}>
+                  <Image style = {styles.image}
+                    source={Images[this.getFilePath(this.props.name)]}
+                  />
+                </View>
                 <Text>{this.props.name}</Text>
              </View>
       )
@@ -39,12 +40,31 @@ const styles = StyleSheet.create ({
       margin: 2,
    },
    image: {
-      // flex: 1,
-      width: 150,
-      height: 150,
+      width: 145,
+      height: 145,
       borderRadius: 75,
-      // resizeMode: 'contain'
+      // borderColor: 'grey',
+      // borderWidth: 5,
+      // paddingHorizontal: 10,
+   },
+   border: {
+//     border:3px dashed white;
+      borderRadius:80,
+      borderColor: 'grey',
+      borderWidth: 3,
+//     width:184px;
+//     height:184px;
+//     position:relative;
+//     left:5px;
+//     top:5px;
    }
+//
+// #image {
+//     background-image:url(table.jpg);
+//     width:200px;
+//     height:200px;
+//     border-radius:100px;
+// }​
 })
 
 
