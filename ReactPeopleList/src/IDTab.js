@@ -28,7 +28,6 @@ class IDTab extends Component {
                     source={Images[this.getFilePath(this.props.name)]}
                   />
                 </View>
-                <Text>{this.props.name}</Text>
              </View>
       )
    }

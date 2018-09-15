@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet} from 'react-native';
+import { Card } from 'react-native-elements';
 import AgeTab from './AgeTab';
 import RatingTab from './RatingTab';
 import IDTab from './IDTab';
@@ -35,9 +36,11 @@ class DetailCard extends Component {
    render() {
       return (
              <View style = {styles.item}>
+               <Card title={this.state.name}>
                 <IDTab name={this.state.name} />
                 <AgeTab birthday={this.state.birthday} />
                 <RatingTab rating={this.state.rating} />
+               </Card>
              </View>
       )
    }
