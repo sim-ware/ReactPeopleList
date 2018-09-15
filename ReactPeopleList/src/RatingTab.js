@@ -6,6 +6,7 @@ class RatingTab extends Component {
    render() {
       return (
              <View style = {styles.item}>
+                <Text>'Rating'</Text>
                 <Text>{this.props.rating}</Text>
              </View>
       )

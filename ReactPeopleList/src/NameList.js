@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import ListItem from './ListItem'
 
-var myModule = require('../Firebase');
+const myModule = require('../Firebase');
 
 
 

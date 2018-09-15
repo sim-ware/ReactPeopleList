@@ -4,7 +4,7 @@ import AgeTab from './AgeTab';
 import RatingTab from './RatingTab';
 import IDTab from './IDTab';
 // import { withNavigation } from 'react-navigation';
-var myModule = require('../Firebase');
+const myModule = require('../Firebase');
 
 // var admin = require("firebase-admin");
 // var db = firebaseAdmin.database();
@@ -22,14 +22,14 @@ class DetailCard extends Component {
   }
   componentDidMount() {
    const db = myModule.db;
-   const name = String(this.props.name);
+   let name = String(this.props.name);
    console.log(name);
    //
-   // db.collection('people').where("name", "==", String(this.props.name)).get().then(collection => {
-   db.collection('people').where("name", "==", "Adam Apple").get().then(collection => {
+   // db.collection('people').where("name", "==", name).get().then(collection => {
+   db.collection('people').where("name", "==", "Lucy Liu").get().then(collection => {
      const name = collection.docs.map(doc => doc.data().name)
      const rating = collection.docs.map(doc => doc.data().rating)
-     const birthday = collection.docs.map(doc => doc.data().birthday.seconds)
+     const birthday = collection.docs.map(doc => doc.data().birthday)
      this.setState({ name });
      this.setState({ rating });
      this.setState({ birthday });

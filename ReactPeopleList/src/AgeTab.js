@@ -3,17 +3,27 @@ import { Text, View, StyleSheet} from 'react-native';
 
 
 class AgeTab extends Component {
+  constructor() {
+    super();
+    this.checkAge = this.checkAge.bind(this);
+  }
 
-  getAge(age) {
-    console.log(age);
-    var date = new Date(time);
-    console.log(date.toString)
+  checkAge(birthday) {
+    if (typeof birthday !== 'undefined') {
+      birthday = birthday[0];
+      birthday = new Date(birthday);
+      var ageDifMs = Date.now() - birthday.getTime();
+      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+    return birthday
   }
 
    render() {
       return (
              <View style = {styles.item}>
-                <Text>{this.props.birthday}</Text>
+                <Text>'Age'</Text>
+                <Text>{this.checkAge(this.props.birthday)}</Text>
              </View>
       )
    }
