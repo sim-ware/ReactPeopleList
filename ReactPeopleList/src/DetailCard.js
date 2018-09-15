@@ -25,8 +25,19 @@ class DetailCard extends Component {
    let name = String(this.props.name);
    console.log(name);
    //
+   // Create a reference to the cities collection
+   var citiesRef = db.collection("people");
+
+   // Create a query against the collection.
+   name = name.replace(/['"]+/g, '');
+   console.log(name);
+   var query = citiesRef.where("name", "==", name);
+   console.log(query);
+   // DYNAMIC: "\"Harry Hands\""
+   // HARD-CODED: "Adam Apple"
+   //
    // db.collection('people').where("name", "==", name).get().then(collection => {
-   db.collection('people').where("name", "==", "Lucy Liu").get().then(collection => {
+   db.collection('people').where("name", "==", name).get().then(collection => {
      const name = collection.docs.map(doc => doc.data().name)
      const rating = collection.docs.map(doc => doc.data().rating)
      const birthday = collection.docs.map(doc => doc.data().birthday)
