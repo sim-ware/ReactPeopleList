@@ -7,6 +7,7 @@ class AgeTab extends Component {
     super();
     this.checkAge = this.checkAge.bind(this);
     this.getCountDown = this.getCountDown.bind(this);
+    this.getDateDifference = this.getDateDifference.bind(this);
   }
 
   checkAge(birthday) {
@@ -21,38 +22,38 @@ class AgeTab extends Component {
   }
 
   getCountDown(birthday) {
-    // birthday needs to be converted to '10-01' format; MM-DD
-    // console.log(String(birthday).substr(5,2));
-    // console.log(String(birthday).substr(8,2));
-    // birthday = String(birthday).substr(5,2) + '-' + String(birthday).substr(8,2)
-    // var t1 = new Date();
-    // var t2 = new Date(t1.getFullYear() + '-' + birthday);
-    // var dif = t1.getTime() - t2.getTime();
-    // var Seconds_from_T1_to_T2 = dif / 1000;
-    // var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
-    // console.log(Seconds_Between_Dates/60/60/24);
-    // console.log(Seconds_Between_Dates.getMonth());
-    // return countDown
-    return birthday
-
+    var ans = birthday;
+    ans = this.getDateDifference(birthday)
+    // console.log(ans)
+    if (ans < 0) {
+      // console.log(String(birthday).slice(4, 10));
+      birthdayNew = '2018' + String(birthday).slice(4, 10)
+      ans = this.getDateDifference(birthdayNew)
+      // console.log(ans);
+      if (ans < 0) {
+        // console.log(String(birthday).slice(4, 10));
+        birthdayNew = '2019' + String(birthday).slice(4, 10)
+        ans = this.getDateDifference(birthdayNew)
+        // console.log(ans);
+      }
+    }
+    // console.log(String(birthday).slice(4, 10));
+    return parseInt(ans)
   }
 
-  getSecondsTillDate(date) {
-    var t1 = new Date();
-    var t2 = new Date(t1.getFullYear() + '-' + date);
-    var dif = t1.getTime() - t2.getTime();
-    var Seconds_from_T1_to_T2 = dif / 1000;
-    var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
-    return Seconds_Between_Dates;
+  getDateDifference(birthday) {
+    var startd = Date.parse(new Date(), "yyyy-MM-dd");
+    var endd = Date.parse(birthday, "yyyy-MM-dd");
+    var diff = new Date(endd - startd);
+    var days = diff/1000/60/60/24;
+    return days
   }
 
    render() {
       return (
              <View style = {styles.item}>
-                <Text>'Age'</Text>
-                <Text>{this.checkAge(this.props.birthday)}</Text>
-                <Text>'Until Birthday'</Text>
-                <Text>{this.getCountDown(this.props.birthday)}</Text>
+                <Text>{this.checkAge(this.props.birthday)} years old</Text>
+                <Text>{this.getCountDown(this.props.birthday)} until next birthday</Text>
              </View>
       )
    }
@@ -62,6 +63,7 @@ const styles = StyleSheet.create ({
    item: {
       paddingHorizontal: 50,
       margin: 2,
+      alignItems: 'center',
    }
 })
 

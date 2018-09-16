@@ -36,7 +36,7 @@ class DetailCard extends Component {
    render() {
       return (
              <View style = {styles.item}>
-               <Card title={this.state.name}>
+               <Card title={String(this.state.name)}>
                 <IDTab name={this.state.name} />
                 <AgeTab birthday={this.state.birthday} />
                 <RatingTab rating={this.state.rating} />
