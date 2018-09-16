@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Text, View, StyleSheet} from 'react-native';
+// import EditButton from './EditButton';
+// import EditMode from './EditMode';
 
 
 class RatingTab extends Component {
@@ -13,28 +15,21 @@ class RatingTab extends Component {
    }
 
    enterEditMode() {
-     console.log('enteringEditMode')
-     console.log(this.state.editMode)
      this.setState({
       editMode: true
      });
    }
 
    leaveEditMode() {
-     console.log(this.state.editMode)
      this.setState({editMode:false});
-     console.log('leavingEditMode')
-     console.log(this.state.editMode)
    }
 
    render() {
-      const editButton = <Button onPress={() => this.enterEditMode()} title="edit" />;
-      const editMode = <Button onPress={() => this.leaveEditMode()} title="cancel" />;
-      console.log('inRender')
-      console.log(this.state.editMode);
+      const editButton = <View><Text>Rating: {this.props.rating}</Text><Button onPress={() => this.enterEditMode()} title="edit" /></View>;
+      const editMode = <View><Text>Rating: {this.props.rating}</Text><Button onPress={() => this.leaveEditMode()} title="cancel" /></View>;
+
       return (
              <View style = {styles.item}>
-                <Text>Rating: {this.props.rating}</Text>
                 {this.state.editMode ? editMode : editButton}
              </View>
       )
