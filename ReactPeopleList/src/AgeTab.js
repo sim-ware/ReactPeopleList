@@ -53,7 +53,7 @@ class AgeTab extends Component {
       return (
              <View style = {styles.item}>
                 <Text>{this.checkAge(this.props.birthday)} years old</Text>
-                <Text>{this.getCountDown(this.props.birthday)} until next birthday</Text>
+                <Text>{this.getCountDown(this.props.birthday)} days until next birthday</Text>
              </View>
       )
    }
