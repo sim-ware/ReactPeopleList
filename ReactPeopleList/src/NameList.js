@@ -27,6 +27,7 @@ export default class NameList extends Component {
           <FlatList
             data={this.state.data}
             renderItem={({item}) => <ListItem name={item} />}
+            keyExtractor={(item, index) => index.toString()}
           />
         </View>
       )

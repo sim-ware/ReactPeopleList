@@ -20,9 +20,9 @@ class DetailCard extends Component {
   componentDidMount() {
    const db = myModule.db;
    let name = String(this.props.name);
-   var citiesRef = db.collection("people");
+   let citiesRef = db.collection("people");
    name = name.replace(/['"]+/g, '');
-   var query = citiesRef.where("name", "==", name);
+   let query = citiesRef.where("name", "==", name);
    db.collection('people').where("name", "==", name).get().then(collection => {
      const name = collection.docs.map(doc => doc.data().name)
      const rating = collection.docs.map(doc => doc.data().rating)

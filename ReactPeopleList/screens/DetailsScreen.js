@@ -1,11 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import DetailCard from '../src/DetailCard'
-//
-// console.log(data);
-// <Text>itemId: {JSON.stringify(itemId)}</Text>
-// <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-//
+
 
 export default class DetailsScreen extends React.Component {
   static navigationOptions = {

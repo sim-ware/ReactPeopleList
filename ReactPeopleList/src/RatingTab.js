@@ -39,17 +39,14 @@ class RatingTab extends Component {
    }
 
    saveRating() {
-     console.log('Saving.')
      name = String(this.props.name);
      let key = name.substr(0,1).toLowerCase().charCodeAt(0) - 96;
      String(key).length == 1 ? key='0'+key : key=key
-     console.log(key);
      let nRat = (parseInt(this.props.rating) + parseInt(this.state.newRating))
      const db = myModule.db;
      db.collection("people").doc(String(key)).update({
        "rating": nRat
      })
-     console.log(nRat);
      this.setState({editMode:false});
    }
 

@@ -14,15 +14,15 @@ class AgeTab extends Component {
     if (typeof birthday !== 'undefined') {
       birthday = birthday[0];
       birthday = new Date(birthday);
-      var ageDifMs = Date.now() - birthday.getTime();
-      var ageDate = new Date(ageDifMs);
+      let ageDifMs = Date.now() - birthday.getTime();
+      let ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
     return birthday
   }
 
   getCountDown(birthday) {
-    var ans = birthday;
+    let ans = birthday;
     ans = this.getDateDifference(birthday)
     if (ans < 0) {
       birthdayNew = '2018' + String(birthday).slice(4, 10)
@@ -39,10 +39,10 @@ class AgeTab extends Component {
   }
 
   getDateDifference(birthday) {
-    var startd = Date.parse(new Date(), "yyyy-MM-dd");
-    var endd = Date.parse(birthday, "yyyy-MM-dd");
-    var diff = new Date(endd - startd);
-    var days = diff/1000/60/60/24;
+    let startd = Date.parse(new Date(), "yyyy-MM-dd");
+    let endd = Date.parse(birthday, "yyyy-MM-dd");
+    let diff = new Date(endd - startd);
+    let days = diff/1000/60/60/24;
     return days
   }
 
