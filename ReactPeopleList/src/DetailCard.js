@@ -39,7 +39,7 @@ class DetailCard extends Component {
                <Card title={String(this.state.name)}>
                 <IDTab name={this.state.name} />
                 <AgeTab birthday={this.state.birthday} />
-                <RatingTab rating={this.state.rating} />
+                <RatingTab rating={this.state.rating} name={this.state.name} />
                </Card>
              </View>
       )

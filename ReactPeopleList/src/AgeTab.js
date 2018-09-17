@@ -24,21 +24,18 @@ class AgeTab extends Component {
   getCountDown(birthday) {
     var ans = birthday;
     ans = this.getDateDifference(birthday)
-    // console.log(ans)
     if (ans < 0) {
-      // console.log(String(birthday).slice(4, 10));
       birthdayNew = '2018' + String(birthday).slice(4, 10)
       ans = this.getDateDifference(birthdayNew)
-      // console.log(ans);
       if (ans < 0) {
-        // console.log(String(birthday).slice(4, 10));
         birthdayNew = '2019' + String(birthday).slice(4, 10)
         ans = this.getDateDifference(birthdayNew)
-        // console.log(ans);
       }
     }
-    // console.log(String(birthday).slice(4, 10));
-    return parseInt(ans)
+    let months = (Math.round(ans/31));
+    let days = (String(birthday).substr(8,2));
+    let res = parseInt(months) + ' months and ' + parseInt(days)
+    return res
   }
 
   getDateDifference(birthday) {
